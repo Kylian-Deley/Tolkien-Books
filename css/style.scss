@@ -1,0 +1,143 @@
+@import 'tailwindcss/base.css';
+@import 'tailwindcss/components.css';
+@import 'tailwindcss/utilities.css';
+
+
+@font-face {
+  font-family: 'AnironC';
+  src: url('../fonts/Anironc.ttf');
+}
+
+$dark-bg: #09090B;
+$dark-secondary: theme('colors.gray.700');
+
+body {
+  background-color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+
+  main{
+    background-color: #F1F5F9;
+  }
+
+  &.dark {
+    background-color: $dark-bg;
+    color: white;
+    main{
+      background-color: $dark-bg;
+    }
+    .cover-card{
+      background-color: $dark-bg;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h4 {
+  font-family: AnironC;
+}
+
+header {
+  @apply bg-no-repeat bg-center bg-cover text-gray-200 py-5 flex flex-col justify-between;
+  background-image: url(../img/background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 700px;
+
+  nav {
+    @apply flex justify-between px-16;
+
+    img {
+      @apply w-12;
+    }
+    ul {
+      @apply flex gap-5 list-none;
+      li {
+        @apply text-inherit;
+
+        img {
+          @apply w-5;
+        }
+      }
+    }
+  }
+  .title {
+    @apply text-center flex flex-col items-center justify-center h-full;
+    h1 {
+      @apply uppercase leading-tight;
+      margin: 0;
+    }
+    h2 {
+      margin: 0;
+    }
+  }
+}
+
+
+#oeuvres {
+  background-color: inherit;
+  @apply pt-8 mt-8 text-center text-lg;
+  padding: 0 10%;
+  
+  span {
+    @apply font-bold text-xl; 
+  }
+  
+  p {
+    @apply text-base;
+  }
+  
+  aside {
+    @apply p-5 grid gap-4 mt-3 md:grid-cols-4 sm:grid-cols-2 grid-cols-1 items-center justify-center;
+    
+    article {
+      @apply h-full p-5 shadow-lg shadow-green-500/40 rounded-lg flex flex-col items-center justify-around; 
+    }
+  }
+}
+
+#ordres{
+  padding: 0 10%;
+  .custom-font{
+    font-family: AnironC;
+    @apply text-xl;
+  }
+  .cover-card {
+    background-color: white;
+    @apply p-5 shadow-lg shadow-cyan-500/40 rounded-lg flex justify-around;
+    img {
+      height: 220px;
+    }
+  }
+
+  .tag{
+    background-color: #22D3EE;
+    @apply uppercase font-bold text-sm rounded-lg inline-block px-2 py-[2px];
+  }
+}
+
+#histoire{
+  padding: 0 10%;
+}
+
+footer{
+  background-color: #1E293B;
+  color: white;
+  @apply flex flex-col items-center justify-center;
+  padding: 20px 20%;
+
+  img{
+    width: 50px;
+    margin-bottom: 10px;
+  }
+
+  p{
+    @apply text-center pb-2
+  }
+}
+

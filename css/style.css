@@ -1,0 +1,125 @@
+@import 'tailwindcss/base.css';
+@import 'tailwindcss/components.css';
+@import 'tailwindcss/utilities.css';
+@font-face {
+  font-family: "AnironC";
+  src: url("../fonts/Anironc.ttf");
+}
+body {
+  background-color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+body main {
+  background-color: #F1F5F9;
+}
+body.dark {
+  background-color: #09090B;
+  color: white;
+}
+body.dark main {
+  background-color: #09090B;
+}
+body.dark .cover-card {
+  background-color: #09090B;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h4 {
+  font-family: AnironC;
+}
+
+header {
+  @apply bg-no-repeat bg-center bg-cover text-gray-200 py-5 flex flex-col justify-between;
+  background-image: url(../img/background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 700px;
+}
+header nav {
+  @apply flex justify-between px-16;
+}
+header nav img {
+  @apply w-12;
+}
+header nav ul {
+  @apply flex gap-5 list-none;
+}
+header nav ul li {
+  @apply text-inherit;
+}
+header nav ul li img {
+  @apply w-5;
+}
+header .title {
+  @apply text-center flex flex-col items-center justify-center h-full;
+}
+header .title h1 {
+  @apply uppercase leading-tight;
+  margin: 0;
+}
+header .title h2 {
+  margin: 0;
+}
+
+#oeuvres {
+  background-color: inherit;
+  @apply pt-8 mt-8 text-center text-lg;
+  padding: 0 10%;
+}
+#oeuvres span {
+  @apply font-bold text-xl;
+}
+#oeuvres p {
+  @apply text-base;
+}
+#oeuvres aside {
+  @apply p-5 grid gap-4 mt-3 md:grid-cols-4 sm:grid-cols-2 grid-cols-1 items-center justify-center;
+}
+#oeuvres aside article {
+  @apply h-full p-5 shadow-lg shadow-green-500/40 rounded-lg flex flex-col items-center justify-around;
+}
+
+#ordres {
+  padding: 0 10%;
+}
+#ordres .custom-font {
+  font-family: AnironC;
+  @apply text-xl;
+}
+#ordres .cover-card {
+  background-color: white;
+  @apply p-5 shadow-lg shadow-cyan-500/40 rounded-lg flex justify-around;
+}
+#ordres .cover-card img {
+  height: 220px;
+}
+#ordres .tag {
+  background-color: #22D3EE;
+  @apply uppercase font-bold text-sm rounded-lg inline-block px-2 py-[2px];
+}
+
+#histoire {
+  padding: 0 10%;
+}
+
+footer {
+  background-color: #1E293B;
+  color: white;
+  @apply flex flex-col items-center justify-center;
+  padding: 20px 20%;
+}
+footer img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+footer p {
+  @apply text-center pb-2;
+}
+
+/*# sourceMappingURL=style.css.map */
