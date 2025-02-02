@@ -10,5 +10,8 @@
     "build:css": "postcss css/style.css -o css/final.css",
     "build": "npm run build:sass && npm run build:css",
     "watch": "sass --watch css/style.scss css/style.css"
+  },
+  "devDependencies": {
+    "sass": "^1.83.4"
   }
 }
