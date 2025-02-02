@@ -4,6 +4,9 @@ on:
   pull_request:
     branches:
       - main
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   lint-and-build:
@@ -18,3 +21,41 @@ jobs:
 
       - name: Build Sass and PostCSS
         run: npm run build
+
+  release:
+    runs-on: ubuntu-latest
+    needs: lint-and-build
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Sass and PostCSS
+        run: npm run build
+
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
+          body: |
+            Inclut les livrables générés automatiquement
+          draft: false
+          prerelease: false
+
+      - name: Upload Final CSS as Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./css/final.css
+          asset_name: final.css
+          asset_content_type: text/css
